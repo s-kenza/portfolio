@@ -185,6 +185,7 @@ export const DATA = {
         },
       ],
       image: "/portfolio.png",
+      video: ""
     },
     {
       title: "CRM Axignis",
@@ -208,6 +209,7 @@ export const DATA = {
         },
       ],
       image: "/axignis.png",
+      video: ""
     },
     {
       title: "Jeu du pendu",
@@ -233,6 +235,7 @@ export const DATA = {
         },
       ],
       image: "/pendu.png",
+      video: ""
     },
   ],
   hackathons: [
