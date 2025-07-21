@@ -100,7 +100,7 @@ export default function Page() {
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
+            <h2 className="text-xl font-bold">Compétences</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
             {DATA.skills.map((skill, id) => (
@@ -196,28 +196,72 @@ export default function Page() {
         </div>
       </section> */}
       <section id="contact">
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
+        <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  Contact
+                </div>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                  Entrer en contact
+                </h2>
+                <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  N&apos;hésitez pas à me contacter pour discuter de vos projets ou simplement échanger.
+                </p>
               </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Entrer en contact
-              </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Vous voulez discuter ? Envoyez-moi un DM{" "}
-                <Link
-                  href={DATA.contact.social.X.url}
-                  className="text-blue-500 hover:underline"
-                >
-                  with a direct question on twitter
-                </Link>{" "}
-                and I&apos;ll respond whenever I can. I will ignore all
-                soliciting.
-              </p>
             </div>
           </BlurFade>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-4 max-w-4xl mx-auto">
+            <BlurFade delay={BLUR_FADE_DELAY * 17}>
+              <Link
+                href={`mailto:${DATA.contact.email}`}
+                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+              >
+                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                  <DATA.contact.social.email.icon className="size-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2">Email</h3>
+                <p className="text-sm text-muted-foreground text-center">
+                  {DATA.contact.email}
+                </p>
+              </Link>
+            </BlurFade>
+
+            <BlurFade delay={BLUR_FADE_DELAY * 18}>
+              <Link
+                href={DATA.contact.social.LinkedIn.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+              >
+                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                  <DATA.contact.social.LinkedIn.icon className="size-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2">LinkedIn</h3>
+                <p className="text-sm text-muted-foreground text-center">
+                  Connectons-nous professionnellement
+                </p>
+              </Link>
+            </BlurFade>
+
+            <BlurFade delay={BLUR_FADE_DELAY * 19}>
+              <Link
+                href={DATA.contact.social.GitHub.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+              >
+                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                  <DATA.contact.social.GitHub.icon className="size-6 text-primary" />
+                </div>
+                <h3 className="font-semibold text-lg mb-2">GitHub</h3>
+                <p className="text-sm text-muted-foreground text-center">
+                  Découvrez mes projets open source
+                </p>
+              </Link>
+            </BlurFade>
+          </div>
         </div>
       </section>
     </main>

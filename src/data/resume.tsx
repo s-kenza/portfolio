@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, UserIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, FolderOpenIcon, MailIcon } from "lucide-react";
 
 export const DATA = {
   name: "Kenza Schuler",
@@ -17,16 +17,23 @@ export const DATA = {
     "Next.js",
     "Typescript",
     "Node.js",
-    "Python",
-    "Go",
-    "Postgres",
+    "Tailwind",
+    "PHP",
+    "APIs REST",
     "Docker",
-    "Kubernetes",
-    "Java",
-    "C++",
+    "Figma",
+    "Responsive Design",
+    "Git",
+    "Accessibilité web",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Accueil" },
+    { href: "/#about", icon: UserIcon, label: "À propos" },
+    { href: "/#work", icon: BriefcaseIcon, label: "Expériences" },
+    { href: "/#education", icon: GraduationCapIcon, label: "Formations" },
+    { href: "/#skills", icon: CodeIcon, label: "Compétences" },
+    { href: "/#projects", icon: FolderOpenIcon, label: "Projets" },
+    { href: "/#contact", icon: MailIcon, label: "Contact" },
   ],
   contact: {
     email: "kenza.schuler@gmail.com",
@@ -155,8 +162,8 @@ export const DATA = {
   projects: [
     {
       title: "Portfolio de Kenza Schuler",
-      href: "https://chatcollect.com",
-      dates: "Jan 2024 - Feb 2024",
+      href: "https://portfolio-kenza-schuler.vercel.app",
+      dates: "Juil. 2025",
       active: true,
       description:
         "Portfolio moderne et minimaliste développé avec Next.js, TailwindCSS et Shadcn UI. Présente mes projets, expériences et compétences de manière claire et esthétique.",
@@ -173,7 +180,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://kenza-schuler-vercel.app",
+          href: "https://portfolio-kenza-schuler.vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
       ],
@@ -208,7 +215,7 @@ export const DATA = {
       dates: "Février 2025",
       active: true,
       description:
-       "Développé un jeu du pendu en React, pour jouer en simultané à 2 joueurs en devinant des mots en un nombre limité d'essais.",
+        "Développé un jeu du pendu en React, pour jouer en simultané à 2 joueurs en devinant des mots en un nombre limité d'essais.",
       technologies: [
         "React",
         "Node.js",
@@ -225,8 +232,7 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
+      image: "/pendu.png",
     },
   ],
   hackathons: [
