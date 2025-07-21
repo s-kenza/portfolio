@@ -26,8 +26,7 @@ export const DATA = {
     "C++",
   ],
   navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/", icon: HomeIcon, label: "Accueil" },
   ],
   contact: {
     email: "kenza.schuler@gmail.com",
@@ -45,19 +44,6 @@ export const DATA = {
         url: "https://www.linkedin.com/in/kenza-schuler-9aa4ab231/",
         icon: Icons.linkedin,
 
-        navbar: true,
-      },
-      X: {
-        name: "X",
-        url: "https://dub.sh/dillion-twitter",
-        icon: Icons.x,
-
-        navbar: true,
-      },
-      Youtube: {
-        name: "Youtube",
-        url: "https://dub.sh/dillion-youtube",
-        icon: Icons.youtube,
         navbar: true,
       },
       email: {
@@ -187,13 +173,11 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://chatcollect.com",
+          href: "https://kenza-schuler-vercel.app",
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+      image: "/portfolio.png",
     },
     {
       title: "CRM Axignis",
