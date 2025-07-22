@@ -196,8 +196,8 @@ export const DATA = {
           icon: <Icons.globe className="size-3" />,
         },
       ],
-      image: "/portfolio.png",
-      video: ""
+      image: "",
+      video: "/portfolio.mp4"
     },
     {
       title: "CRM Axignis",
