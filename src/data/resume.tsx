@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import { FaBrush, FaCloud, FaCode, FaDatabase, FaLaptop, FaTools } from "react-icons/fa";
 import { HomeIcon, NotebookIcon, UserIcon, BriefcaseIcon, GraduationCapIcon, CodeIcon, FolderOpenIcon, MailIcon } from "lucide-react";
 
 export const DATA = {
@@ -13,6 +14,80 @@ export const DATA = {
     "Actuellement responsable applicatif chez [APRR](/#work), j’allie expertise technique et exigences du secteur industriel. J’aime la musique et l'informatique, deux passions qui se croisent par l’écriture créative, où chaque ligne a son importance pour créer œuvre complète. Cette double approche se nourrit aussi de ma formation en [M2 Ingénierie du Web à l’ESGI Lyon](#education).",
   avatarUrl: "/me.png",
   skills: [
+   {
+    name: "Frontend",
+    icon: FaCode,
+    color: "#42A5F5",
+    list: [
+      "React",
+      "Next.js",
+      "Typescript",
+      "Javascript",
+      "TailwindCSS",
+      "HTML5",
+      "CSS3",
+      "Bootstrap",
+    ],
+   },
+   {
+    name: "Backend",
+    icon: FaDatabase,
+    color: "#E53935",
+    list: [
+      "Node.js",
+      "NestJS",
+      "Express",
+      "PHP",
+      "Fastify",
+      "APIs REST",
+      "MySQL",
+      "MariaDB",
+      "PostgreSQL",
+      "MongoDB"
+    ]
+   },
+   {
+    name: "UX-UI",
+    icon: FaLaptop,
+    color: "#FFEE58",
+    list: [
+      "Responsive Design",
+      "Figma",
+    ]
+   },
+   {
+    name: "DevOps & Cloud",
+    icon: FaCloud,
+    color: "#AB47BC",
+    list: [
+      "Docker",
+      "nginx",
+      "CI/CD",
+      "Git",
+    ]
+   },
+   {
+    name: "Outils & Technos",
+    icon: FaTools,
+    color: "#388E3C",
+    list: [
+      "Github",
+      "npm",
+      "VSCode"
+    ]
+   },
+   {
+    name: "Autres compétences",
+    icon: FaBrush,
+    color: "#FF8A65",
+    list: [
+      "Accessibilité web",
+      "Agile/Scrum"
+    ]
+   }
+  ],
+  iconCloud:
+  [
     "React",
     "Next.js",
     "NestJS",
@@ -34,6 +109,7 @@ export const DATA = {
     "APIs REST",
     "Docker",
     "Figma",
+    "APIs REST",
     "Responsive Design",
     "Git",
     "Github",

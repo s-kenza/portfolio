@@ -3,17 +3,11 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { IconCloud } from "@/components/magicui/icon-cloud";
+import { FaCode } from "react-icons/fa";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { HoverEffect } from "@/components/magicui/card-hover-effect";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
@@ -21,9 +15,16 @@ import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
 
-const images = DATA.skills.map(
-  (skill) => `https://cdn.simpleicons.org/${skill}/${skill}`
+const images = DATA.iconCloud.map(
+  (icon) => `https://cdn.simpleicons.org/${icon}/${icon}`
 )
+
+export const projects = DATA.skills.map((skill) => ({
+  title: skill.name,
+  icon: <skill.icon size={24} color={skill.color}/>,
+  skill: skill.list,
+  // link: "https://stripe.com",
+}))
 
 export default function Page() {
   return (
@@ -120,12 +121,9 @@ export default function Page() {
             <div className="relative flex size-full items-center justify-center overflow-hidden">
               <IconCloud images={images} />
             </div>
-
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
-              </BlurFade>
-            ))}
+            <div className="max-w-5xl mx-auto px-8">
+              <HoverEffect items={projects} />
+            </div>
           </div>
         </div>
       </section>
