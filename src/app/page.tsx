@@ -1,15 +1,29 @@
 import { HackathonCard } from "@/components/hackathon-card";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { ShineBorder } from "@/components/magicui/shine-border";
+import { IconCloud } from "@/components/magicui/icon-cloud";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 const BLUR_FADE_DELAY = 0.04;
+
+const images = DATA.skills.map(
+  (skill) => `https://cdn.simpleicons.org/${skill}/${skill}`
+)
 
 export default function Page() {
   return (
@@ -103,6 +117,10 @@ export default function Page() {
             <h2 className="text-xl font-bold">Compétences</h2>
           </BlurFade>
           <div className="flex flex-wrap gap-1">
+            <div className="relative flex size-full items-center justify-center overflow-hidden">
+              <IconCloud images={images} />
+            </div>
+
             {DATA.skills.map((skill, id) => (
               <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
                 <Badge key={skill}>{skill}</Badge>
