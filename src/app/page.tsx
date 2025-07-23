@@ -19,11 +19,11 @@ const images = DATA.iconCloud.map(
   (icon) => `https://cdn.simpleicons.org/${icon}/${icon}`
 )
 
-export const projects = DATA.skills.map((skill) => ({
+const projects = DATA.skills.map((skill) => ({
   title: skill.name,
   icon: <skill.icon size={24} color={skill.color}/>,
-  skill: skill.list,
-  // link: "https://stripe.com",
+  skill: skill.list.slice(),
+  link: "#",
 }))
 
 export default function Page() {
