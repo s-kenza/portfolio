@@ -252,17 +252,19 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-4 max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-stretch px-4 max-w-4xl mx-auto">
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
               <Link
                 href={`mailto:${DATA.contact.email}`}
-                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+                className="group flex flex-col items-center justify-between p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64 h-48"
               >
-                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
-                  <DATA.contact.social.email.icon className="size-6 text-primary" />
+                <div className="flex flex-col items-center flex-1 justify-center">
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                    <DATA.contact.social.email.icon className="size-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Email</h3>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Email</h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center mt-auto">
                   {DATA.contact.email}
                 </p>
               </Link>
@@ -273,13 +275,15 @@ export default function Page() {
                 href={DATA.contact.social.LinkedIn.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+                className="group flex flex-col items-center justify-between p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64 h-48"
               >
-                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
-                  <DATA.contact.social.LinkedIn.icon className="size-6 text-primary" />
+                <div className="flex flex-col items-center flex-1 justify-center">
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                    <DATA.contact.social.LinkedIn.icon className="size-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">LinkedIn</h3>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">LinkedIn</h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center mt-auto">
                   Connectons-nous professionnellement
                 </p>
               </Link>
@@ -290,13 +294,15 @@ export default function Page() {
                 href={DATA.contact.social.GitHub.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+                className="group flex flex-col items-center justify-between p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64 h-48"
               >
-                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
-                  <DATA.contact.social.GitHub.icon className="size-6 text-primary" />
+                <div className="flex flex-col items-center flex-1 justify-center">
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                    <DATA.contact.social.GitHub.icon className="size-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">GitHub</h3>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">GitHub</h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center mt-auto">
                   Découvrez mes projets open source
                 </p>
               </Link>
