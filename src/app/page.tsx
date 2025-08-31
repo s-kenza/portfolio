@@ -3,6 +3,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { IconCloud } from "@/components/magicui/icon-cloud";
+import { Highlighter } from "@/components/magicui/highlighter";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -38,11 +39,18 @@ export default function Page() {
                 yOffset={8}
                 text={`Je suis ${DATA.name.split(" ")[0]} 👋`}
               />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="max-w-[600px] md:text-xl">
+                  <Highlighter color="#ffd1dc" action="highlight" isView={true}>
+                    Développeuse web. 
+                  </Highlighter>
+                   J'aime rendre le web{" "}
+                  <Highlighter color="#b8e6b8" action="underline" isView={true}>
+                    humain et efficace
+                  </Highlighter>
+                  , comme il devrait toujours l'être. Du sens, du soin, du solide.
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
