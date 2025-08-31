@@ -1,3 +1,4 @@
+"use client";
 import { Dock, DockIcon } from "@/components/magicui/dock";
 import { ModeToggle } from "@/components/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
@@ -10,6 +11,22 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+
+function handleSmoothScroll(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) {
+  if (href.startsWith("/#")) {
+    e.preventDefault();
+    const id = href.split("#")[1];
+    const el = document.getElementById(id);
+    if (el) {
+      window.scrollTo({
+        top: el.offsetTop - 60, // ajuste le décalage si tu as une navbar fixe
+        behavior: "smooth",
+      });
+    }
+    // Met à jour l'URL sans recharger la page
+    window.history.pushState(null, "", href);
+  }
+}
 
 export default function Navbar() {
   return (
@@ -26,6 +43,7 @@ export default function Navbar() {
                     buttonVariants({ variant: "ghost", size: "icon" }),
                     "size-12"
                   )}
+                  onClick={item.href.startsWith("/#") ? (e) => handleSmoothScroll(e, item.href) : undefined}
                 >
                   <item.icon className="size-4" />
                 </Link>
