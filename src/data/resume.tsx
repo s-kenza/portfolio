@@ -39,6 +39,39 @@ export const DATA = {
     "Github",
     "Accessibilité web",
   ],
+  skillsCategories: {
+    "Frontend": [
+      "React",
+      "Next.js",
+      "Typescript",
+      "Javascript",
+      "HTML5",
+      "CSS",
+      "TailwindCSS",
+      "Bootstrap",
+      "Responsive Design",
+      "Accessibilité web"
+    ],
+    "Backend & Base de données": [
+      "Node.js",
+      "NestJS",
+      "PHP",
+      "Express",
+      "Fastify",
+      "APIs REST",
+      "MySQL",
+      "MariaDB",
+      "nginx"
+    ],
+    "Outils & DevOps": [
+      "Docker",
+      "Git",
+      "Github",
+      "npm",
+      "Figma",
+      "Wordpress"
+    ]
+  },
   navbar: [
     { href: "/", icon: HomeIcon, label: "Accueil" },
     { href: "/#about", icon: UserIcon, label: "À propos" },

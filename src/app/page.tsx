@@ -116,14 +116,36 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Compétences</h2>
           </BlurFade>
-          <div className="flex flex-wrap gap-1">
+          
+          {/* Cloud d'icônes */}
+          <BlurFade delay={BLUR_FADE_DELAY * 9.5}>
             <div className="relative flex size-full items-center justify-center overflow-hidden">
               <IconCloud images={images} />
             </div>
+          </BlurFade>
 
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
+          {/* Badges organisés par catégories */}
+          <div className="space-y-6">
+            {Object.entries(DATA.skillsCategories).map(([category, skills], categoryIndex) => (
+              <BlurFade key={category} delay={BLUR_FADE_DELAY * 10 + categoryIndex * 0.1}>
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-foreground">{category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, skillIndex) => (
+                      <BlurFade 
+                        key={skill} 
+                        delay={BLUR_FADE_DELAY * 10.5 + categoryIndex * 0.1 + skillIndex * 0.02}
+                      >
+                        <Badge 
+                          variant="default" 
+                          className="hover:bg-secondary hover:text-secondary-foreground transition-colors duration-200"
+                        >
+                          {skill}
+                        </Badge>
+                      </BlurFade>
+                    ))}
+                  </div>
+                </div>
               </BlurFade>
             ))}
           </div>
