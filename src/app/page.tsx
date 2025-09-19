@@ -3,6 +3,7 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ShineBorder } from "@/components/magicui/shine-border";
 import { IconCloud } from "@/components/magicui/icon-cloud";
+import { Highlighter } from "@/components/magicui/highlighter";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -38,11 +39,18 @@ export default function Page() {
                 yOffset={8}
                 text={`Je suis ${DATA.name.split(" ")[0]} 👋`}
               />
-              <BlurFadeText
-                className="max-w-[600px] md:text-xl"
-                delay={BLUR_FADE_DELAY}
-                text={DATA.description}
-              />
+              <BlurFade delay={BLUR_FADE_DELAY * 2}>
+                <div className="max-w-[600px] md:text-xl">
+                  <Highlighter color="#ffd1dc" action="highlight" isView={true}>
+                    Développeuse web. 
+                  </Highlighter>
+                   J'aime rendre le web{" "}
+                  <Highlighter color="#b8e6b8" action="underline" isView={true}>
+                    humain et efficace
+                  </Highlighter>
+                  , comme il devrait toujours l'être. Du sens, du soin, du solide.
+                </div>
+              </BlurFade>
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
@@ -116,14 +124,36 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Compétences</h2>
           </BlurFade>
-          <div className="flex flex-wrap gap-1">
+          
+          {/* Cloud d'icônes */}
+          <BlurFade delay={BLUR_FADE_DELAY * 9.5}>
             <div className="relative flex size-full items-center justify-center overflow-hidden">
               <IconCloud images={images} />
             </div>
+          </BlurFade>
 
-            {DATA.skills.map((skill, id) => (
-              <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <Badge key={skill}>{skill}</Badge>
+          {/* Badges organisés par catégories */}
+          <div className="space-y-6">
+            {Object.entries(DATA.skillsCategories).map(([category, skills], categoryIndex) => (
+              <BlurFade key={category} delay={BLUR_FADE_DELAY * 10 + categoryIndex * 0.1}>
+                <div className="space-y-3">
+                  <h3 className="text-sm font-semibold text-foreground">{category}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, skillIndex) => (
+                      <BlurFade 
+                        key={skill} 
+                        delay={BLUR_FADE_DELAY * 10.5 + categoryIndex * 0.1 + skillIndex * 0.02}
+                      >
+                        <Badge 
+                          variant="default" 
+                          className="hover:bg-secondary hover:text-secondary-foreground transition-colors duration-200"
+                        >
+                          {skill}
+                        </Badge>
+                      </BlurFade>
+                    ))}
+                  </div>
+                </div>
               </BlurFade>
             ))}
           </div>
@@ -230,17 +260,19 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center px-4 max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-stretch px-4 max-w-4xl mx-auto">
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
               <Link
                 href={`mailto:${DATA.contact.email}`}
-                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+                className="group flex flex-col items-center justify-between p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64 h-48"
               >
-                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
-                  <DATA.contact.social.email.icon className="size-6 text-primary" />
+                <div className="flex flex-col items-center flex-1 justify-center">
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                    <DATA.contact.social.email.icon className="size-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Email</h3>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">Email</h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center mt-auto">
                   {DATA.contact.email}
                 </p>
               </Link>
@@ -251,13 +283,15 @@ export default function Page() {
                 href={DATA.contact.social.LinkedIn.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+                className="group flex flex-col items-center justify-between p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64 h-48"
               >
-                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
-                  <DATA.contact.social.LinkedIn.icon className="size-6 text-primary" />
+                <div className="flex flex-col items-center flex-1 justify-center">
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                    <DATA.contact.social.LinkedIn.icon className="size-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">LinkedIn</h3>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">LinkedIn</h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center mt-auto">
                   Connectons-nous professionnellement
                 </p>
               </Link>
@@ -268,13 +302,15 @@ export default function Page() {
                 href={DATA.contact.social.GitHub.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col items-center p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64"
+                className="group flex flex-col items-center justify-between p-6 bg-card border rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 w-full sm:w-64 h-48"
               >
-                <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
-                  <DATA.contact.social.GitHub.icon className="size-6 text-primary" />
+                <div className="flex flex-col items-center flex-1 justify-center">
+                  <div className="p-4 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors mb-4">
+                    <DATA.contact.social.GitHub.icon className="size-6 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">GitHub</h3>
                 </div>
-                <h3 className="font-semibold text-lg mb-2">GitHub</h3>
-                <p className="text-sm text-muted-foreground text-center">
+                <p className="text-sm text-muted-foreground text-center mt-auto">
                   Découvrez mes projets open source
                 </p>
               </Link>
