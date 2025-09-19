@@ -246,7 +246,31 @@ export const DATA = {
           icon: <Icons.github className="size-3" />,
         },
       ],
-      image: "/pendu.png",
+      image: "",
+      video: "/jeu-du-pendu.mp4"
+    },
+    {
+      title: "Services",
+      href: "https://github.com/Hackathon-Grp-1",
+      dates: "Juin 2025",
+      active: true,
+      description:
+        "Une plateforme de mise en relation entre entreprises et particuliers pour des services de proximité. Boostée par l'IA.",
+      technologies: [
+        "React",
+        "NestJS",
+        "TailwindCSS",
+        "MUI",
+        "n8n",
+      ],
+      links: [
+        {
+          type: "Source",
+          href: "https://github.com/Hackathon-Grp-1",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/services.webp",
       video: ""
     },
   ],
